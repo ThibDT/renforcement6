@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Renforcement #6</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Partie 1: Interprétation de pseudo-code</h2>
+        <div class="alert alert-primary">
+            Le signe ← signifie "prend la valeur".
+        </div>
+        <div class="row mb-5">
+            <h3>Exercice 1</h3>
+            <div class="col-12">
+                <p>
+                    <strong>Variables :</strong> a, b
+                    <strong>(Integers)</strong>
+                    <br>c <strong>(String)</strong>
+                </p>
+                <p><strong>Début</strong></p>
+                <p class="indented">
+                    a ← 0
+                    <br>b ← 5
+                    <br>c ← ''
+                    <br>Tant que <strong>a < b</strong>
+                    <span class="indented">
+                        ajouter <strong>(b-a)</strong> à <strong>c</strong>
+                        <br>Si <strong>a modulo 2 vaut 0</strong>
+                        <span class="indented">
+                            incrémenter <strong>b</strong> avec un pas de 1
+                        </span>
+                        <br>incrémenter <strong>a</strong> avec un pas de 1
+                    </span>
+                    <br>
+                </p>
+                <p><strong>Fin</strong></p>
+            </div>
+            <div class="col-12 mb-4">
+                <div class="form-inline">
+                    <div class="input-group mr-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">a</div>
+                        </div>
+                        <input type="text" class="form-control" id="ex1a">
+                    </div>
+                    <div class="input-group mr-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">b</div>
+                        </div>
+                        <input type="text" class="form-control" id="ex1b">
+                    </div>
+                    <div class="input-group mr-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">c</div>
+                        </div>
+                        <input type="text" class="form-control" id="ex1c">
+                    </div>
+                    <button id="ex1sub" class="btn btn-primary">Corriger</button>
+                </div>
+            </div>
+            <h3>Exercice 2</h3>
+            <div class="col-12">
+                <p>
+                    <strong>Variables :</strong> a <strong>(Integers)</strong>
+                    <br>b <strong>(Array)</strong>
+                </p>
+                <p><strong>Début</strong></p>
+                <p class="indented">
+                    a ← 8
+                    <br>b ← [0, 1]
+                    <br>Pour i de 1 à <strong>a</strong> (inclus)
+                    <span class="indented">
+                        ajouter à <strong>b</strong> la valeur de <strong>b[i-1] + b[i]</strong>
+                    </span>
+                </p>
+                <p><strong>Fin</strong></p>
+            </div>
+            <div class="col-12 mb-4">
+                <div class="form-inline">
+                    <div class="input-group mr-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">b</div>
+                        </div>
+                        <input type="text" class="form-control" id="ex2b">
+                    </div>
+                    <button id="ex2sub" class="btn btn-primary">Corriger</button>
+                </div>
+            </div>
+            <h3>Exercice 3</h3>
+            <div class="col-12">
+                <p>
+                    Implémentez un algorithme mettant en application le chiffre de Vigenère.
+                </p>
+                <div class="alert alert-primary">
+                    <p>
+                        Le chiffrement se fait en reportant l'indice de chaque lettre du message à ma clé (en reprenant la clé au début lorsque l'on atteint sa limite). 
+                        <br>La lettre obtenue de cette façon définie la lettre de départ de mon alphabet.
+                        <br>Par exemple si mon message est "plop" et ma clé "codi" :
+                        <br>Je prend la lettre d'indice 0 dans "plop" (p) qui est la 16ème lettre de l'alphabet.
+                        <br>Je prend la lettre d'indice 0 dans ma clé "codi" (c).
+                        <br>Pour chiffrer cette lettre, mon alphabet correspondant commencera donc par c (cdefghijklmnopqrstuvwxyzab).
+                        <br>La 16ème lettre de cet alphabet est donc r.
+                        <br>On prend ensuite la lettre d'indice 1 dans mon message (l) qui est la 12ème lettre de l'alphabet.
+                        <br>Je prend la lettre d'indice 1 dans ma clé "codi" (o).
+                        <br>Mon alphabet correspondant commencera donc par o (opqrstuvwxyzabcdefghijklmn).
+                        <br>La 12ème lettre de cet alphabet est donc z.
+                        <br>On continue ainsi jusqu'à la fin du message.
+                    </p>
+                </div>
+                <div id="result"></div>
+                <div>
+                    <div class="form-group">
+                        <label for="key">Clé de chiffrement</label>
+                        <input type="text" id="key" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" class="form-control" cols="30" rows="10"></textarea>
+                    </div>
+                    <button class="btn btn-primary" id="encrypt">Chiffrer</button>
+                    <button class="btn btn-warning" id="decrypt">Déchiffrer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
